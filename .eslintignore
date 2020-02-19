@@ -2,6 +2,8 @@
 !*.js
 !*.ts
 /dist/
+/lib/
+/chrome/
 node_modules
 web_modules
 .cache

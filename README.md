@@ -10,7 +10,7 @@ Add specific features to Dev.to, such as humanize-duration
 
 - Clone this project, or visit [releases](https://github.com/patarapolw/better-dev.to/releases)
 - `yarn && yarn build`
-- Go to Chrome browser, and visit <chrome://extensions>
+- Go to Chrome / Chromium browser, and visit [chrome://extensions](chrome://extensions)
 - Load Unpacked, and select this folder
 
 ## What files are really required

@@ -3,6 +3,10 @@
  * @param {number} duration
  */
 export function humanizeDuration (duration) {
+  if (!duration || typeof duration !== 'number' || duration < 0) {
+    return ''
+  }
+
   /**
    * @type {string[]}
    */

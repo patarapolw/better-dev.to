@@ -1,0 +1,25 @@
+{
+  "name": "better-dev.to",
+  "private": true,
+  "main": "dist/index.js",
+  "author": "Pacharapol Withayasakpunt <patarapolw@gmail.com> (https://polvcode.dev)",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/index.ts -d dist"
+  },
+  "dependencies": {
+    "humanize-duration": "^3.21.0"
+  },
+  "devDependencies": {
+    "@types/humanize-duration": "^3.18.0",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": ">=6.2.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": ">=2.18.0",
+    "eslint-plugin-node": ">=9.1.0",
+    "eslint-plugin-promise": ">=4.2.1",
+    "eslint-plugin-standard": ">=4.0.0",
+    "typescript": "^3.7.5"
+  }
+}

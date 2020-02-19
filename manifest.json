@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "Better dev.to",
+  "description": "Add specific features to Dev.to, such as humanize-duration",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://dev.to/*"
+      ],
+      "js": ["dist/index.js"]
+    }
+  ]
+}

@@ -4,6 +4,9 @@ const humanizer = humanizeDuration.humanizer({
   language: 'shortEn',
   languages: {
     shortEn: {
+      y: () => 'y',
+      mo: () => 'mo',
+      d: () => 'd',
       h: () => 'h',
       m: () => 'm',
       s: () => 's'
@@ -24,16 +27,19 @@ const observer = new MutationObserver(() => {
         let human = n.getAttribute('data-human')
         if (!human && datetime) {
           const duration = now - +new Date(datetime)
-          if (duration < 1000 * 60 * 60 * 24) {
-            human = humanizer(duration, {
-              round: true,
-              largest: 2,
-              spacer: ''
-            }).replace(/,/g, '')
+          human = humanizer(duration, {
+            round: true,
+            largest: 2,
+            spacer: ''
+          }).replace(/,/g, '')
 
+          if (duration < 1000 * 60 * 60 * 24) {
             n.innerText = `${human} ago, on ${n.innerText}`
-            n.setAttribute('data-human', human)
+          } else {
+            n.innerText = `${n.innerText} (${human} ago)`
           }
+
+          n.setAttribute('data-human', human)
         }
       })
     })

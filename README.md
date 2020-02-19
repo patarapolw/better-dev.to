@@ -19,3 +19,4 @@ The only required files in production are
 
 - `manifest.json`
 - `dist/**/*.js`
+- `web_modules/app.nomodule.js`  (Plan use [snowpack](https://www.snowpack.dev/) if things get more complex.)

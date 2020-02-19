@@ -1,22 +1,6 @@
-import humanizeDuration from 'humanize-duration'
+import { humanizeDuration } from './duration.js'
 
-const humanizer = humanizeDuration.humanizer({
-  language: 'shortEn',
-  languages: {
-    shortEn: {
-      y: () => 'y',
-      mo: () => 'mo',
-      w: () => 'w',
-      d: () => 'd',
-      h: () => 'h',
-      m: () => 'm',
-      s: () => 's',
-      ms: () => 'ms'
-    }
-  }
-})
-
-let commentsNode: HTMLDivElement | null = null
+let commentsNode = null
 
 const observer = new MutationObserver(() => {
   if (commentsNode) {
@@ -24,12 +8,12 @@ const observer = new MutationObserver(() => {
     observer.disconnect()
 
     const obs2 = new MutationObserver(() => {
-      Array.from(commentsNode!.getElementsByTagName('time')).map((n) => {
+      Array.from(commentsNode.getElementsByTagName('time')).map((n) => {
         const datetime = n.getAttribute('datetime')
         let human = n.getAttribute('data-human')
         if (!human && datetime) {
           const duration = now - +new Date(datetime)
-          human = humanizer(duration, {
+          human = humanizeDuration(duration, {
             round: true,
             largest: 2,
             spacer: ''
@@ -53,7 +37,7 @@ const observer = new MutationObserver(() => {
     })
   }
 
-  commentsNode = document.getElementById('comments') as HTMLDivElement
+  commentsNode = document.getElementById('comments')
 })
 
 const globalConvertDuration = () => {

@@ -6,10 +6,12 @@ const humanizer = humanizeDuration.humanizer({
     shortEn: {
       y: () => 'y',
       mo: () => 'mo',
+      w: () => 'w',
       d: () => 'd',
       h: () => 'h',
       m: () => 'm',
-      s: () => 's'
+      s: () => 's',
+      ms: () => 'ms'
     }
   }
 })

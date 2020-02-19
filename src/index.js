@@ -52,6 +52,9 @@ const globalConvertDuration = () => {
 globalConvertDuration()
 
 window.addEventListener('popstate', () => {
-  console.log('popstate')
+  globalConvertDuration()
+})
+
+window.addEventListener('hashchange', () => {
   globalConvertDuration()
 })

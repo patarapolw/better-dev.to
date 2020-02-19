@@ -19,41 +19,46 @@ export function humanizeDuration (duration) {
    */
   div = divideAndRemainder(duration, 60)
   duration = div.result
-  stack.push(`${div.remainder}s`)
+  stack.push(div.remainder ? `${div.remainder}s` : null)
 
   /**
    * min
    */
   div = divideAndRemainder(duration, 60)
   duration = div.result
-  stack.push(`${div.remainder}min`)
+  stack.push(div.remainder ? `${div.remainder}m` : null)
 
   /**
    * h
    */
   div = divideAndRemainder(duration, 24)
   duration = div.result
-  stack.push(`${div.remainder}h`)
+  stack.push(div.remainder ? `${div.remainder}h` : null)
 
   /**
    * w
    */
   div = divideAndRemainder(duration, 7)
-  stack.push(`${div.remainder}w`)
+  stack.push(div.remainder ? `${div.remainder}w` : null)
 
   /**
    * mo
    */
   div = divideAndRemainder(duration, 30)
-  stack.push(`${div.remainder}mo`)
+  stack.push(div.remainder ? `${div.remainder}mo` : null)
 
   /**
    * y
    */
   div = divideAndRemainder(duration, 365)
-  stack.push(`${div.remainder}y`)
+  stack.push(div.remainder ? `${div.remainder}y` : null)
 
-  return stack.reverse().join(' ') + ' ago'
+  return stack
+    .filter(s => s)
+    .slice(0, 2)
+    .filter(s => s)
+    .reverse()
+    .join(' ') + ' ago'
 }
 
 /**

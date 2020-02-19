@@ -6,8 +6,12 @@
   "license": "MIT",
   "scripts": {
     "prepare": "snowpack",
-    "browserify": "browserify src/index.js -p esmify > dist/index.js",
-    "snowpack": "babel src/ --out-dir lib && snowpack --nomodule lib/index.js"
+    "browserify": "browserify src/index.js -p esmify > chrome/index.js",
+    "snowpack": "snowpack --nomodule src/index.js",
+    "postsnowpack": "cp web_modules/app.nomodule.js chrome/index.js",
+    "snowpack-ts": "babel src/ --out-dir lib && snowpack --nomodule lib/index.js",
+    "postsnowpack-ts": "yarn postsnowpack",
+    "release": "mkdir -p dist && zip -r dist/chrome.zip chrome"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",

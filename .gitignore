@@ -3,3 +3,4 @@ dist
 .cache
 web_modules
 /lib/
+/*.zip
